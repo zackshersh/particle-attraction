@@ -22,7 +22,7 @@ const PARTICLE_SCENARIOS = {
             { name: 'yellow', color: [255, 230,  40] },
             { name: 'pink',   color: [255,  80, 200] },
         ],
-        countPerType: 200,
+        countPerType: 140,
         forces: [
             //            red    green   blue   yellow   pink
             /* red    */ [ 0.1,  0.18,  -0.08,   0.06,  0.09 ],
@@ -31,7 +31,7 @@ const PARTICLE_SCENARIOS = {
             /* yellow */ [ 0.12, -0.14,  0.12,   0.11,  0.13 ],
             /* pink   */ [-0.09, -0.09, -0.07,  -0.13,  0.016],
         ],
-        maxForceDistance: 60,
+        maxForceDistance: 80,
         extendedMaxForceDistance: 160,
         isolationTime: 50,
         minDistance: 12,
@@ -80,7 +80,7 @@ const PARTICLE_SCENARIOS = {
             { name: 'yellow', color: [255, 230,  40] },
             { name: 'pink',   color: [255,  80, 200] },
         ],
-        countPerType: 300,
+        countPerType: 200,
         forces: [
             [0.045,-0.065,0.06,0.06,0.09],
             [0.095,0.065,-0.06,-0.04,-0.06],
