@@ -22,7 +22,7 @@ const PARTICLE_SCENARIOS = {
             { name: 'yellow', color: [255, 230,  40] },
             { name: 'pink',   color: [255,  80, 200] },
         ],
-        countPerType: 300,
+        countPerType: 200,
         forces: [
             //            red    green   blue   yellow   pink
             /* red    */ [ 0.1,  0.18,  -0.08,   0.06,  0.09 ],

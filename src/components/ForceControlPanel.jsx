@@ -139,7 +139,7 @@ export default function ForceControlPanel({
     return (
         <div className="force-panel">
             <button className="force-panel-toggle" onClick={() => setOpen((o) => !o)}>
-                {open ? '✕  Forces' : '⚙  Forces'}
+                {open ? '✕  Settings' : '⚙  Settings'}
             </button>
 
             {open && (
