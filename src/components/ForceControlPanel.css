@@ -1,0 +1,279 @@
+.force-panel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.force-panel-toggle {
+  display: block;
+  margin-left: auto;
+  padding: 7px 14px;
+  background: rgba(20, 20, 32, 0.92);
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.force-panel-toggle:hover {
+  background: rgba(35, 35, 52, 0.96);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.force-panel-body {
+  margin-top: 6px;
+  background: rgba(14, 14, 22, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px 14px;
+  backdrop-filter: blur(8px);
+  width: 340px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.force-panel-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--dot-color, transparent);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s;
+  flex-shrink: 0;
+}
+
+.filter-dot.active {
+  transform: scale(1.25);
+}
+
+.filter-dot-all {
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  background: rgba(30, 30, 50, 0.9);
+  color: #aaa;
+  font-size: 10px;
+  padding: 2px 6px;
+  letter-spacing: 0.04em;
+}
+
+.filter-dot-all.active {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.force-panel-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 11px;
+  opacity: 0.65;
+}
+
+.legend-attract {
+  color: rgb(80, 210, 110);
+}
+
+.legend-repel {
+  color: rgb(220, 80, 80);
+}
+
+.pair-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pair-row:last-child {
+  margin-bottom: 0;
+}
+
+.force-panel-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 8px 0;
+}
+
+.rel-icon {
+  width: 24px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.force-slider-wrap {
+  flex: 1;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.force-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.force-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--thumb-color, #e0e0f0);
+  border: none;
+  cursor: grab;
+  transition: transform 0.1s;
+}
+
+.force-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.2);
+}
+
+.force-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--thumb-color, #e0e0f0);
+  border: none;
+  cursor: grab;
+}
+
+.force-panel-log-btn {
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+  background: rgba(30, 30, 50, 0.9);
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  margin: 4px 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.force-panel-log-btn:hover {
+  background: rgba(50, 50, 80, 0.95);
+  color: #ddd;
+}
+
+/* ── Scenario switcher ───────────────────────────────────── */
+.scenario-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.scenario-arrow {
+  background: rgba(30, 30, 50, 0.9);
+  color: #bbb;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 3px 9px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.scenario-arrow:hover:not(:disabled) {
+  background: rgba(50, 50, 80, 0.95);
+  color: #ddd;
+}
+
+.scenario-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.scenario-label {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #ddd;
+  letter-spacing: 0.05em;
+}
+
+.scenario-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 4px;
+}
+
+.scenario-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(120, 120, 160, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.scenario-dot.active {
+  background: rgba(140, 140, 220, 0.85);
+  transform: scale(1.3);
+}
+
+.scenario-dot:hover:not(.active) {
+  background: rgba(120, 120, 180, 0.6);
+}
+
+/* ── Parameter sliders ───────────────────────────────────── */
+.param-row {
+  margin-bottom: 8px;
+}
+
+.param-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3px;
+}
+
+.param-label {
+  font-size: 10px;
+  color: #999;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.param-value {
+  font-size: 11px;
+  color: #bbb;
+  font-variant-numeric: tabular-nums;
+}
+
+.param-slider {
+  --thumb-color: #8888cc;
+}
