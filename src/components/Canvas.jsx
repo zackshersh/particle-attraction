@@ -9,6 +9,8 @@ function deepCopy2D(matrix) {
     return matrix.map((row) => [...row]);
 }
 
+const hideUI = new URLSearchParams(window.location.search).get('hideUI') !== null;
+
 function Canvas() {
     const containerRef = useRef(null);
     const canvasManagerRef = useRef(null);
@@ -19,6 +21,7 @@ function Canvas() {
     const [countPerType, setCountPerType] = useState(PARTICLE_SCENARIOS[0].countPerType);
     const [maxForceDistance, setMaxForceDistance] = useState(PARTICLE_SCENARIOS[0].maxForceDistance);
     const [forceStrength, setForceStrength] = useState(PARTICLE_SCENARIOS[0].forceStrength);
+    const [scale, setScale] = useState(PARTICLE_SCENARIOS[0].scale ?? 1);
 
     React.useEffect(() => {
         if (!containerRef.current) return;
@@ -29,6 +32,7 @@ function Canvas() {
         setCountPerType(sc.countPerType);
         setMaxForceDistance(sc.maxForceDistance);
         setForceStrength(sc.forceStrength);
+        setScale(sc.scale ?? 1);
         savedForcesRef.current = null;
         return () => {
             mgr.p5Instance?.remove();
@@ -57,6 +61,11 @@ function Canvas() {
     const handleForceStrengthChange = useCallback((v) => {
         canvasManagerRef.current?.updateForceStrength(v);
         setForceStrength(v);
+    }, []);
+
+    const handleScaleChange = useCallback((v) => {
+        canvasManagerRef.current?.updateScale(v);
+        setScale(v);
     }, []);
 
     const handleMouseDown = useCallback(() => {
@@ -92,27 +101,33 @@ function Canvas() {
     return (
         <>
             <div ref={containerRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} style={{ overflow: 'hidden' }} />
-            <ForceControlPanel
-                key={scenarioId}
-                types={scenario.types}
-                forces={forces}
-                onForceChange={handleForceChange}
-                scenarioId={scenarioId}
-                scenarioCount={SCENARIO_COUNT}
-                scenarioLabel={scenario.label}
-                onScenarioChange={setScenarioId}
-                countPerType={countPerType}
-                onCountPerTypeChange={handleCountPerTypeChange}
-                maxForceDistance={maxForceDistance}
-                onMaxForceDistanceChange={handleMaxForceDistanceChange}
-                forceStrength={forceStrength}
-                onForceStrengthChange={handleForceStrengthChange}
-            />
-            <RelationshipGraph
-                key={`rg-${scenarioId}`}
-                types={scenario.types}
-                forces={forces}
-            />
+            {!hideUI && (
+                <ForceControlPanel
+                    key={scenarioId}
+                    types={scenario.types}
+                    forces={forces}
+                    onForceChange={handleForceChange}
+                    scenarioId={scenarioId}
+                    scenarioCount={SCENARIO_COUNT}
+                    scenarioLabel={scenario.label}
+                    onScenarioChange={setScenarioId}
+                    countPerType={countPerType}
+                    onCountPerTypeChange={handleCountPerTypeChange}
+                    maxForceDistance={maxForceDistance}
+                    onMaxForceDistanceChange={handleMaxForceDistanceChange}
+                    forceStrength={forceStrength}
+                    onForceStrengthChange={handleForceStrengthChange}
+                    scale={scale}
+                    onScaleChange={handleScaleChange}
+                />
+            )}
+            {!hideUI && (
+                <RelationshipGraph
+                    key={`rg-${scenarioId}`}
+                    types={scenario.types}
+                    forces={forces}
+                />
+            )}
         </>
     );
 }

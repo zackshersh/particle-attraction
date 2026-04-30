@@ -109,6 +109,7 @@ export default function ForceControlPanel({
     countPerType, onCountPerTypeChange,
     maxForceDistance, onMaxForceDistanceChange,
     forceStrength, onForceStrengthChange,
+    scale, onScaleChange,
 }) {
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState(new Set());
@@ -191,6 +192,13 @@ export default function ForceControlPanel({
                         value={forceStrength}
                         min={0.05} max={5} step={0.05}
                         onChange={onForceStrengthChange}
+                        format={(v) => v.toFixed(2)}
+                    />
+                    <ParamSlider
+                        label="Scale"
+                        value={scale}
+                        min={0.25} max={4} step={0.05}
+                        onChange={onScaleChange}
                         format={(v) => v.toFixed(2)}
                     />
 

@@ -204,6 +204,12 @@ class ParticleCanvasManager {
         this._scenario.forceStrength = v;
     }
 
+    updateScale(v) {
+        this._scenario.scale = v;
+        if (this._lastW) this._spawnParticles(this._lastW, this._lastH);
+        this._grid = null;
+    }
+
     // ── Particle spawning ─────────────────────────────────────────────────────
 
     _spawnParticles(w, h) {

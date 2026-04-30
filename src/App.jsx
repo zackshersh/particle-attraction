@@ -9,9 +9,9 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div style={{overflow: "hidden", height: "100vh"}}>
         <Canvas />
-    </>
+    </div>
   )
 }
 
