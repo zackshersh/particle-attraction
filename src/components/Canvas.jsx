@@ -100,7 +100,7 @@ function Canvas() {
 
     return (
         <>
-            <div ref={containerRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} style={{ overflow: 'hidden' }} />
+            <div ref={containerRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} style={{ overflow: 'hidden', height: "100vh" }} />
             {!hideUI && (
                 <ForceControlPanel
                     key={scenarioId}
